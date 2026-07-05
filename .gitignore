@@ -5,3 +5,6 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+backend/no-of-phc-chc.json
+backend/list-of-wellness-centres.json
+backend/list-of-meds.json

@@ -1,11 +1,7 @@
 import { Link } from "@tanstack/react-router"
+import { HeartPulse } from "lucide-react"
 
-import { useTheme } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
-import icon from "/assets/images/fastapi-icon.svg"
-import iconLight from "/assets/images/fastapi-icon-light.svg"
-import logo from "/assets/images/fastapi-logo.svg"
-import logoLight from "/assets/images/fastapi-logo-light.svg"
 
 interface LogoProps {
   variant?: "full" | "icon" | "responsive"
@@ -13,43 +9,44 @@ interface LogoProps {
   asLink?: boolean
 }
 
+function LogoMark({ className }: { className?: string }) {
+  return (
+    <span
+      className={cn(
+        "flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground",
+        className,
+      )}
+    >
+      <HeartPulse className="size-4" />
+    </span>
+  )
+}
+
 export function Logo({
   variant = "full",
   className,
   asLink = true,
 }: LogoProps) {
-  const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme === "dark"
-
-  const fullLogo = isDark ? logoLight : logo
-  const iconLogo = isDark ? iconLight : icon
-
   const content =
-    variant === "responsive" ? (
-      <>
-        <img
-          src={fullLogo}
-          alt="FastAPI"
+    variant === "icon" ? (
+      <LogoMark className={className} />
+    ) : variant === "responsive" ? (
+      <span className="flex items-center gap-2">
+        <LogoMark className="group-data-[collapsible=icon]:size-8" />
+        <span
           className={cn(
-            "h-6 w-auto group-data-[collapsible=icon]:hidden",
+            "font-semibold tracking-tight group-data-[collapsible=icon]:hidden",
             className,
           )}
-        />
-        <img
-          src={iconLogo}
-          alt="FastAPI"
-          className={cn(
-            "size-5 hidden group-data-[collapsible=icon]:block",
-            className,
-          )}
-        />
-      </>
+        >
+          HealSync AI
+        </span>
+      </span>
     ) : (
-      <img
-        src={variant === "full" ? fullLogo : iconLogo}
-        alt="FastAPI"
-        className={cn(variant === "full" ? "h-6 w-auto" : "size-5", className)}
-      />
+      <span className={cn("flex items-center gap-2 font-semibold", className)}>
+        <LogoMark />
+        HealSync AI
+      </span>
     )
 
   if (!asLink) {
