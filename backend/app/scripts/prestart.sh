@@ -6,8 +6,8 @@ set -x
 # Let the DB start
 python app/backend_pre_start.py
 
-# Run migrations
-alembic upgrade head
+# Run Flyway migrations here
+# (This is where you would add your Flyway command)
 
 # Create initial data in DB
 python app/initial_data.py
