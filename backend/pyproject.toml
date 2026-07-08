@@ -5,7 +5,7 @@ description = ""
 requires-python = ">=3.14,<4.0"
 dependencies = [
   "email-validator<3.0.0.0,>=2.1.0.post1",
-  "fastapi>=0.138.1,<1.0.0",
+  "fastapi>=0.139.0,<1.0.0",
   "psycopg[binary]<4.0.0,>=3.1.13",
   "pwdlib[argon2,bcrypt]>=0.3.0",
   "pydantic>2.0",
