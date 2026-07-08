@@ -1,15 +1,15 @@
 ---
 name: healsync-ai-project
-description: Provides context and implementation guidance for the HealSync AI project, an AI-driven health center and supply chain management platform.
+description: Provides context and implementation guidance for the SwaasthSarvagya AI project, an AI-driven health center and supply chain management platform.
 ---
 
-# HealSync AI Project Skill
+# SwaasthSarvagya AI Project Skill
 
-This skill contains the core context for the **HealSync AI** project. Use this skill when working on any feature, bug fix, or documentation related to this project.
+This skill contains the core context for the **SwaasthSarvagya AI** project. Use this skill when working on any feature, bug fix, or documentation related to this project.
 
 ## Project Vision
 
-HealSync AI is an AI-powered District Health Intelligence Platform designed to monitor healthcare operations across Primary (PHCs) and Community (CHCs) Health Centres. It aims to proactively recommend interventions to prevent shortages and operational failures, moving from reactive to proactive health management.
+SwaasthSarvagya AI is an AI-powered District Health Intelligence Platform designed to monitor healthcare operations across Primary (PHCs) and Community (CHCs) Health Centres. It aims to proactively recommend interventions to prevent shortages and operational failures, moving from reactive to proactive health management.
 
 ## Core Objective
 
@@ -54,4 +54,4 @@ The project is based on the "Full Stack FastAPI Template".
   3.  Use TanStack Query for data fetching and state management.
   4.  Use `shadcn/ui` components for the UI.
 
-Refer to `HealSync AI Backend Implementation.md` and `HealSync AI Frontend Implementation.md` for detailed, step-by-step implementation plans.
+Refer to `SwaasthSarvagya AI Backend Implementation.md` and `SwaasthSarvagya AI Frontend Implementation.md` for detailed, step-by-step implementation plans.

@@ -1,4 +1,4 @@
-# Swaasth Sarvagya - HealSync AI - Deployment
+# Swaasth Sarvagya - SwaasthSarvagya AI - Deployment
 
 You can deploy the project using Docker Compose to a remote server.
 

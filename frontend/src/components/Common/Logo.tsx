@@ -39,13 +39,13 @@ export function Logo({
             className,
           )}
         >
-          HealSync AI
+          SwaasthSarvagya AI
         </span>
       </span>
     ) : (
       <span className={cn("flex items-center gap-2 font-semibold", className)}>
         <LogoMark />
-        HealSync AI
+        SwaasthSarvagya AI
       </span>
     )
 

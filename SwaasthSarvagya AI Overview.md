@@ -1,4 +1,4 @@
-# HealSync AI
+# SwaasthSarvagya AI
 
 ## AI-Driven Health Center & Supply Chain Management Platform
 

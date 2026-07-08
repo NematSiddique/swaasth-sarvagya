@@ -25,7 +25,7 @@ export const Route = createFileRoute("/_layout/")({
   head: () => ({
     meta: [
       {
-        title: "HealSync AI Dashboard",
+        title: "SwaasthSarvagya AI Dashboard",
       },
     ],
   }),
@@ -42,7 +42,7 @@ function Dashboard() {
             <Badge className="w-fit">District health command center</Badge>
             <div>
               <h1 className="text-3xl font-semibold tracking-tight">
-                HealSync AI
+                SwaasthSarvagya AI
               </h1>
               <p className="mt-2 max-w-2xl text-muted-foreground">
                 Welcome,{" "}

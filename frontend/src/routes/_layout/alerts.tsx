@@ -15,7 +15,7 @@ import {
 export const Route = createFileRoute("/_layout/alerts")({
   component: AlertsPage,
   head: () => ({
-    meta: [{ title: "Alerts | HealSync AI" }],
+    meta: [{ title: "Alerts | SwaasthSarvagya AI" }],
   }),
 })
 

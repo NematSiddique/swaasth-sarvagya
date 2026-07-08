@@ -1,4 +1,4 @@
-# Swaasth Sarvagya - HealSync AI
+# Swaasth Sarvagya - SwaasthSarvagya AI
 
 For a high-level overview of the project's vision, objectives, and architecture, please see [**GEMINI.md**](./GEMINI.md).
 

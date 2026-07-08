@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 export const Route = createFileRoute("/_layout/assistant")({
   component: AssistantPage,
   head: () => ({
-    meta: [{ title: "AI Assistant | HealSync AI" }],
+    meta: [{ title: "AI Assistant | SwaasthSarvagya AI" }],
   }),
 })
 

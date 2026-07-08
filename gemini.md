@@ -1,8 +1,8 @@
-# HealSync AI
+# SwaasthSarvagya AI
 
 ## AI-Driven Health Center & Supply Chain Management Platform
 
-This file provides a high-level overview of the HealSync AI project. For more detailed information, please refer to the `GEMINI.md` files in the `backend` and `frontend` directories.
+This file provides a high-level overview of the SwaasthSarvagya AI project. For more detailed information, please refer to the `GEMINI.md` files in the `backend` and `frontend` directories.
 
 ## Vision
 

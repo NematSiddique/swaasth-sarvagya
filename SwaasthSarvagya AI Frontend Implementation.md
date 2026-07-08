@@ -1,6 +1,6 @@
-# HealSync AI - Frontend Implementation Plan
+# SwaasthSarvagya AI - Frontend Implementation Plan
 
-This document provides a step-by-step guide for building the HealSync AI frontend using React, Vite, and Tailwind CSS, based on the existing project template.
+This document provides a step-by-step guide for building the SwaasthSarvagya AI frontend using React, Vite, and Tailwind CSS, based on the existing project template.
 
 ## 1. Project Setup
 

@@ -1,6 +1,6 @@
-# HealSync AI - Backend Implementation Plan
+# SwaasthSarvagya AI - Backend Implementation Plan
 
-This document outlines the step-by-step plan for implementing the backend of the HealSync AI platform using FastAPI, SQLModel, and PostgreSQL, based on the existing project template.
+This document outlines the step-by-step plan for implementing the backend of the SwaasthSarvagya AI platform using FastAPI, SQLModel, and PostgreSQL, based on the existing project template.
 
 ## 1. Project Setup
 
@@ -8,7 +8,7 @@ The project is based on the "Full Stack FastAPI Template". The backend is locate
 
 ## 2. Database Models and Schemas
 
-The first step is to ensure the SQLModel classes in `backend/app/models.py` accurately represent the database schema defined in `HealSync AI Overview.md`. These models are the foundation for the database tables, API validation, and response structures.
+The first step is to ensure the SQLModel classes in `backend/app/models.py` accurately represent the database schema defined in `SwaasthSarvagya AI Overview.md`. These models are the foundation for the database tables, API validation, and response structures.
 
 **Action:**
 1.  **Verify/Update SQLModel Classes:** Review `backend/app/models.py` and ensure it contains SQLModel classes for all necessary tables. The current implementation uses integer primary keys, which should be maintained for consistency.
@@ -188,4 +188,4 @@ Write unit and integration tests for all new functionality in the `/backend/test
 - Write tests for API endpoints, mocking external services like the Gemini API.
 - Ensure business logic, like the event-driven updates from patient registration, is fully tested.
 
-By following this plan, the backend for HealSync AI can be systematically developed, ensuring all requirements from the overview document are met.
+By following this plan, the backend for SwaasthSarvagya AI can be systematically developed, ensuring all requirements from the overview document are met.

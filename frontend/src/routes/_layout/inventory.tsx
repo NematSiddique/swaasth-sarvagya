@@ -15,7 +15,7 @@ import {
 export const Route = createFileRoute("/_layout/inventory")({
   component: InventoryPage,
   head: () => ({
-    meta: [{ title: "Inventory | HealSync AI" }],
+    meta: [{ title: "Inventory | SwaasthSarvagya AI" }],
   }),
 })
 

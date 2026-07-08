@@ -14,7 +14,7 @@ import {
 export const Route = createFileRoute("/_layout/operations")({
   component: OperationsPage,
   head: () => ({
-    meta: [{ title: "Operations | HealSync AI" }],
+    meta: [{ title: "Operations | SwaasthSarvagya AI" }],
   }),
 })
 

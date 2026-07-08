@@ -26,7 +26,7 @@ class TokenPayload(SQLModel):
     sub: str | None = None
 
 
-# HealSync AI domain models
+# SwaasthSarvagya AI domain models
 
 
 class Hospital(SQLModel):
