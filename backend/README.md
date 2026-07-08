@@ -125,3 +125,142 @@ When the tests are run, a file `htmlcov/index.html` is generated, you can open i
 ## Email Templates
 
 Once you have the MJML extension installed, you can create a new email template in the `src` directory. After creating the new email template and with the `.mjml` file open in your editor, open the command palette with `Ctrl+Shift+P` and search for `MJML: Export to HTML`. This will convert the `.mjml` file to a `.html` file and now you can save it in the build directory.
+
+## Mock Alerting And Forecasting Data
+
+For local demo runs, the repository includes a seed migration at `backend/sql_migrations/V24__seed_mock_alerting_forecasting_data.sql`.
+
+That migration inserts a complete mock hospital setup with:
+
+- one hospital
+- doctors and attendance
+- patients and disease history
+- beds and occupancy pressure
+- inventory with low stock and expiring items
+- laboratories, kits, and equipment
+- historical `daily_inventory_usage` and `daily_bed_stats`
+- starter `forecasts` rows for bed occupancy, medicine demand, and kit demand
+
+This data is intended to trigger the alerting rules and to give the forecasting functions enough history to produce results.
+
+### How To Use It
+
+Run your migrations as usual, then start the backend and work with the seeded records through the existing CRUD endpoints.
+
+The alerting and forecasting logic does not currently have dedicated HTTP endpoints in this branch. Instead, it reads the database state that you create through the normal resource endpoints or through the seed migration.
+
+### Request Values That Trigger Alerts
+
+Use these payload shapes if you want to manually create data that will feed the alert engine:
+
+Create a hospital:
+
+```json
+{
+  "name": "Mock District Hospital",
+  "district": "Mock District",
+  "type": "District",
+  "latitude": 18.5204,
+  "longitude": 73.8567,
+  "total_beds": 100,
+  "created_at": "2026-07-08T00:00:00Z"
+}
+```
+
+Create a doctor:
+
+```json
+{
+  "hospital_id": 1001,
+  "name": "Dr. Mock Sharma",
+  "specialization": "General Medicine",
+  "shift": "Day",
+  "leave_status": "Available",
+  "consultation_count": 42
+}
+```
+
+Create a patient:
+
+```json
+{
+  "hospital_id": 1001,
+  "doctor_id": 5001,
+  "disease_id": 2001,
+  "age": 34,
+  "gender": "M",
+  "severity": "Moderate",
+  "bed_required": false,
+  "bed_allocated": false,
+  "admission_status": "active",
+  "registered_at": "2026-07-08T00:00:00Z"
+}
+```
+
+Create inventory that can trigger low-stock and forecasted-shortage alerts:
+
+```json
+{
+  "hospital_id": 1001,
+  "medicine_id": 4001,
+  "quantity": 8,
+  "expiry_date": "2026-07-18",
+  "reorder_level": 20,
+  "updated_at": "2026-07-08T00:00:00Z"
+}
+```
+
+Create a lab kit:
+
+```json
+{
+  "laboratory_id": 6001,
+  "test_name": "Dengue Rapid Test",
+  "stock": 3,
+  "threshold": 12
+}
+```
+
+Create lab equipment:
+
+```json
+{
+  "laboratory_id": 6001,
+  "equipment_name": "CBC Analyzer",
+  "status": "Needs Service",
+  "last_service": "2025-11-30",
+  "expected_life": 7,
+  "usage_frequency": 40,
+  "machine_age": 6
+}
+```
+
+### Forecasting Inputs
+
+The forecasting functions read historical tables, so the most useful rows are:
+
+- `daily_inventory_usage` for medicine demand forecasts
+- `daily_bed_stats` for bed occupancy forecasts
+- `patient_tests` or `patients` history for disease and kit demand forecasts
+
+The seed migration already provides realistic values, but if you want to add your own, keep these patterns in mind:
+
+- low `quantity` compared to `reorder_level` triggers a low inventory alert
+- `quantity` lower than a forecasted demand value triggers a forecasted shortage alert
+- bed occupancy above `90%` triggers a current occupancy alert
+- forecasted occupancy above `85%` triggers a warning alert
+- a doctor marked `status = false` in `doctor_attendance` triggers a staffing alert
+- a laboratory with `status != 'Operational'` triggers a lab availability alert
+- equipment with `last_service` older than about 6 months triggers a maintenance alert
+- repeated recent patient cases for the same disease can trigger a disease spike alert
+
+### Example IDs Used By The Seed Data
+
+- Hospital ID: `1001`
+- Disease ID: `2001`
+- Doctor ID: `5001`
+- Laboratory ID: `6001`
+- Medicine ID: `4001`
+- Kit name: `Dengue Rapid Test`
+
+Those values line up with the mock migration and are useful if you want to add more records manually.
